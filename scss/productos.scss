@@ -1,0 +1,28 @@
+.carrito-table {
+  #tableCarrito {
+    position: absolute;
+    top: 20%;
+    left: 65%;
+    z-index: 2;
+  }
+  .thead {
+    .tr {
+      .title {
+        @include title;
+        font-size: 30px;
+      }
+    }
+  }
+  .tbody {
+    .tr {
+      .paragraph {
+        @include paragraph;
+        font-weight: 400;
+      }
+      .paragraph-total {
+        @include paragraph;
+        font-weight: bold;
+      }
+    }
+  }
+}
