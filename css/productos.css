@@ -1,9 +1,9 @@
-/* Error: Undefined mixin.
- *    ,
- * 11 |         @include title;
- *    |         ^^^^^^^^^^^^^^
- *    '
- *   scss\productos.scss 11:9  root stylesheet */
+/* Error: Undefined variable.
+ *   ,
+ * 7 |       color: $color2;
+ *   |              ^^^^^^^
+ *   '
+ *   scss\productos.scss 7:14  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a    \2577 \a 11 \2502          @include title;\d\a    \2502          ^^^^^^^^^^^^^^\a    \2575 \a   scss\\productos.scss 11:9  root stylesheet";
+  content: "Error: Undefined variable.\a   \2577 \a 7 \2502        color: $color2;\d\a   \2502               ^^^^^^^\a   \2575 \a   scss\\productos.scss 7:14  root stylesheet";
 }

@@ -1,27 +1,28 @@
-.carrito-table {
-  #tableCarrito {
+.modal-container {
+  .modal-li {
     position: absolute;
-    top: 20%;
-    left: 65%;
-    z-index: 2;
-  }
-  .thead {
-    .tr {
-      .title {
-        @include title;
-        font-size: 30px;
-      }
+    top: 27%;
+    left: 87%;
+    .btn {
+      color: $color2;
+      background-color: $color1;
+      border-color: $color2;
     }
   }
-  .tbody {
-    .tr {
-      .paragraph {
-        @include paragraph;
-        font-weight: 400;
-      }
-      .paragraph-total {
-        @include paragraph;
-        font-weight: bold;
+  .paragraph {
+    @include paragraph;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .footer-modal {
+    @include title;
+  }
+}
+.modal-dialog {
+  .modal-content {
+    .modal-header {
+      .modal-title {
+        @include title;
       }
     }
   }

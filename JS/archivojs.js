@@ -201,43 +201,30 @@ function dibujarProductos() {
 }
 
 // Dibujo del carrito
-
+// En el carrito capturamos el modal de HTML y en el body le agregamos las cards únicamente
 function mostrarCarrito() {
-  let tablaCarrito = document.getElementById("tableCarrito");
+  let tablaCarrito = document.getElementById("modalCarrito");
   tablaCarrito.innerHTML = "";
   tablaCarrito.style.backgroundColor = "white";
   carrito.forEach((producto) => {
     let containerModal = document.createElement("div");
     containerModal.innerHTML = `
-    <div class="modal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Carrito de compras</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
         <img src="../img/fotosproductos/${producto.imagen}" class="" alt="${
       producto.nombre
     }"  width="100"  height="100"  />
-           <p scope="row" class="paragraph">${producto.nombre} $ ${
+           <p scope="row" class="paragraph mb-0">${producto.nombre} $ ${
       producto.precio * producto.cantidad
     } </p>
-           <p scope="row" class="paragraph">Cantidad: ${producto.cantidad} </p>
-           <button type="button" class="btn btn-outline-dark" id="btn-incrementar-${
+           <p scope="row" class="paragraph mb-0">Cantidad: ${
+             producto.cantidad
+           } </p>
+           <button type="button" class=" my-3 btn btn-outline-dark" id="btn-incrementar-${
              producto.id
            }">+</button>
-           <button type="button" class="btn btn-outline-dark" id="btn-decrementar-${
+           <button type="button" class=" my-3 btn btn-outline-dark" id="btn-decrementar-${
              producto.id
            }">-</button>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
         `;
 
     tablaCarrito.appendChild(containerModal);
@@ -268,9 +255,10 @@ function mostrarCarrito() {
     0
   );
 
-  const footerCard = document.createElement("div");
-  footerCard.innerHTML = `<h3>TOTAL: $ ${total}</h3>`;
-  tablaCarrito.appendChild(footerCard);
+  const footerModal = document.createElement("div");
+  footerModal.innerHTML = `<h3>TOTAL: $ ${total}</h3>`;
+  footerModal.className += "footer-modal";
+  tablaCarrito.appendChild(footerModal);
 }
 
 function clickAgregarCarrito() {
@@ -286,6 +274,16 @@ function clickAgregarCarrito() {
         id: producto.id,
         cantidad: 1,
       });
+      Toastify({
+        text: `${producto.nombre} añadidx al carrito`,
+        duration: 2000,
+        className: "info",
+        gravity: "bottom",
+        position: "center",
+        style: {
+          background: "black",
+        },
+      }).showToast();
     });
   });
 }
@@ -300,3 +298,5 @@ function abrirCarrito() {
 dibujarProductos();
 clickAgregarCarrito();
 abrirCarrito();
+// Cargo el carrito apenas recarga la página
+mostrarCarrito();

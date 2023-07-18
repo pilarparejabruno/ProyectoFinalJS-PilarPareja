@@ -224,32 +224,36 @@ footer .social-item .social-link .social-icon {
   color: #000000;
 }
 
-.carrito-table #tableCarrito {
+.modal-container .modal-li {
   position: absolute;
-  top: 20%;
-  left: 65%;
-  z-index: 2;
+  top: 27%;
+  left: 87%;
 }
-.carrito-table .thead .tr .title {
+.modal-container .modal-li .btn {
+  color: #000000;
+  background-color: #ffffff;
+  border-color: #000000;
+}
+.modal-container .paragraph {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+}
+.modal-container .footer-modal {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 50px;
   color: #000000;
-  font-size: 30px;
 }
-.carrito-table .tbody .tr .paragraph {
+
+.modal-dialog .modal-content .modal-header .modal-title {
   font-family: "Montserrat", sans-serif;
-  font-weight: 100;
-  font-size: 20px;
-  color: #000000;
   font-weight: 400;
-}
-.carrito-table .tbody .tr .paragraph-total {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 100;
-  font-size: 20px;
+  font-size: 50px;
   color: #000000;
-  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */
