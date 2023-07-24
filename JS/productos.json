@@ -1,0 +1,128 @@
+[
+  {
+    "nombre": "Crema Cielo",
+    "categoria": "Cuidado facial",
+    "descripcion": "hidratante facial",
+    "marca": "Kamikaze",
+    "precio": 5800,
+    "id": 1,
+    "imagen": "fotoproducto-cremacielo.jpg"
+  },
+  {
+    "nombre": "Espuma Nube",
+    "categoria": "Cuidado facial",
+    "descripcion": "espuma de limpieza facial",
+    "marca": "Kamikaze",
+    "precio": 3400,
+    "id": 2,
+    "imagen": "fotoproducto-espumanube.jpg"
+  },
+  {
+    "nombre": "Scrub facial de almendras",
+    "categoria": "Cuidado facial",
+    "descripcion": "exfoliante facial",
+    "marca": "Kamikaze",
+    "precio": 3800,
+    "id": 3,
+    "imagen": "fotoproducto-scrubfacial.jpg"
+  },
+  {
+    "nombre": "Mascarilla Neptuno",
+    "categoria": "Cuidado facial",
+    "descripcion": "mascarilla de arcillas facial",
+    "marca": "Kamikaze",
+    "precio": 3000,
+    "id": 4,
+    "imagen": "fotoproducto-mascarillaneptuno.jpg"
+  },
+  {
+    "nombre": "Sheetmask",
+    "categoria": "Cuidado facial",
+    "descripcion": "mascara facial",
+    "marca": "Kamikaze",
+    "precio": 160,
+    "id": 5,
+    "imagen": "fotoproducto-mascarillaneptuno.jpg"
+  },
+  {
+    "nombre": "Shampoo solido",
+    "categoria": "Cuidado capilar",
+    "descripcion": "shampoo fortalecedor y reparador",
+    "marca": "Kamikaze",
+    "precio": 2500,
+    "id": 6,
+    "imagen": "fotoproducto-shampoo.jpg"
+  },
+  {
+    "nombre": "Acondicionador solido",
+    "categoria": "Cuidado capilar",
+    "descripcion": "hidratacion intensa",
+    "marca": "Kamikaze",
+    "precio": 2500,
+    "id": 7,
+    "imagen": "fotoproducto-acondicionador.jpg"
+  },
+  {
+    "nombre": "Balsamo labial",
+    "categoria": "Cuidado labial",
+    "descripcion": "balsamo labial con color y aroma",
+    "marca": "Kamikaze",
+    "precio": 2270,
+    "id": 8,
+    "imagen": "fotoproducto-balsamolabial.jpg"
+  },
+  {
+    "nombre": "Pad XL",
+    "categoria": "Accesorio",
+    "descripcion": "Pad facial reutilizable",
+    "marca": "Kamikaze",
+    "precio": 900,
+    "id": 9,
+    "imagen": "fotoproducto-padxl.jpg"
+  },
+  {
+    "nombre": "Gua sha",
+    "categoria": "Accesorio",
+    "descripcion": "Piedra para masaje facial",
+    "marca": "Kamikaze",
+    "precio": 3000,
+    "id": 10,
+    "imagen": "fotoproducto-guasha.jpg"
+  },
+  {
+    "nombre": "Hidrolato de rosas",
+    "categoria": "Cuidado facial",
+    "descripcion": "Tonico hidratnate",
+    "marca": "Kamikaze",
+    "precio": 3860,
+    "id": 11,
+    "imagen": "fotoproducto-hidrolatoderosas.jpg"
+  },
+  {
+    "nombre": "Aceite de jojoba",
+    "categoria": "Cuidado facial",
+    "descripcion": "Aceite controlador de sebo",
+    "marca": "Kamikaze",
+    "precio": 2800,
+    "id": 12,
+    "imagen": "fotoproducto-aceitedejojoba.jpg"
+  },
+  {
+    "nombre": "Roll-on Magnolia",
+    "categoria": "Cuidado facial",
+    "descripcion": "contorno de ojos",
+    "marca": "Kamikaze",
+    "precio": 5000,
+    "id": 13,
+    "imagen": "fotoproducto-rollonmagnolia.jpg"
+  },
+  {
+    "nombre": "Halo lunar",
+    "categoria": "Cuidado facial",
+    "descripcion": "Agua micelar",
+    "marca": "Kamikaze",
+    "precio": 3000,
+    "id": 14,
+    "imagen": "fotoproducto-aguamicelar.jpg"
+  }
+]

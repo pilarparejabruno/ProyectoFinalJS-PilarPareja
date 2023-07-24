@@ -4,7 +4,7 @@ let carrito = [];
 
 let total = 0;
 
-stock.push(
+/* stock.push(
   new Producto(
     "Crema Cielo",
     "Cuidado facial",
@@ -160,7 +160,12 @@ stock.push(
     14,
     "fotoproducto-aguamicelar.jpg"
   )
-);
+); */
+
+// Traigo los productos del JSON
+fetch("productos.json")
+  .then((resp) => resp.json())
+  .then((productos) => (stock = productos));
 
 // Dibujo de stock de productos
 
@@ -206,7 +211,7 @@ function mostrarCarrito() {
   let tablaCarrito = document.getElementById("modalCarrito");
   tablaCarrito.innerHTML = "";
   tablaCarrito.style.backgroundColor = "white";
-  carrito.forEach((producto) => {
+  carrito.forEach((producto, index) => {
     let containerModal = document.createElement("div");
     containerModal.innerHTML = `
         <img src="../img/fotosproductos/${producto.imagen}" class="" alt="${
@@ -243,9 +248,12 @@ function mostrarCarrito() {
       `btn-decrementar-${producto.id}`
     );
     botonRestar.addEventListener("click", () => {
-      console.log(producto.id);
       producto.cantidad--;
-      console.log(producto);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      if (producto.cantidad == 0) {
+        carrito.splice(index, 1);
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+      }
       mostrarCarrito();
     });
   });
@@ -266,14 +274,23 @@ function clickAgregarCarrito() {
     let btnAgregarCarrito = document.getElementById(
       `btnAgregarCarrito-${producto.id}`
     );
+
     btnAgregarCarrito.addEventListener("click", () => {
-      carrito.push({
-        imagen: producto.imagen,
-        nombre: producto.nombre,
-        precio: producto.precio,
-        id: producto.id,
-        cantidad: 1,
-      });
+      const productoExistente = carrito.find((p) => p.id == producto.id);
+
+      if (productoExistente) {
+        productoExistente.cantidad++;
+      } else {
+        carrito.push({
+          imagen: producto.imagen,
+          nombre: producto.nombre,
+          precio: producto.precio,
+          id: producto.id,
+          cantidad: 1,
+        });
+      }
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      mostrarCarrito();
       Toastify({
         text: `${producto.nombre} añadidx al carrito`,
         duration: 2000,
@@ -284,6 +301,27 @@ function clickAgregarCarrito() {
           background: "black",
         },
       }).showToast();
+    });
+  });
+}
+function vaciarCarrito() {
+  const botonVaciar = document.getElementById(`vaciarCarrito`);
+  botonVaciar.addEventListener("click", () => {
+    Swal.fire({
+      title: "Desea vaciar el carrito?",
+      confirmButtonText: "Si",
+      showCancelButton: true,
+      cancelButtonText: "No, salir",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        carrito = [];
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        mostrarCarrito();
+        Swal.fire({
+          title: "Carrito vaciado",
+          icon: "success",
+        });
+      }
     });
   });
 }
@@ -298,5 +336,5 @@ function abrirCarrito() {
 dibujarProductos();
 clickAgregarCarrito();
 abrirCarrito();
-// Cargo el carrito apenas recarga la página
+vaciarCarrito();
 mostrarCarrito();
