@@ -29,7 +29,10 @@ function validarInput() {
 }
 
 function emailRegistrado() {
-  if (inputEmail.value === cuentasEmail.email) {
+  const email = cuentasEmail.find((correo) => {
+    correo.email === inputEmail.value;
+  });
+  if (inputEmail.value === email.email) {
     Swal.fire({
       title: "Email ya registrado",
       text: `Por favor ingrese otro`,
