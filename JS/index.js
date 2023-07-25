@@ -39,7 +39,7 @@ function verificarEmailRegistrado() {
 
 btnSuscribir.addEventListener("click", (e) => {
   e.preventDefault();
-  emailRegistrado();
+  verificarEmailRegistrado();
   limpiarForm();
 });
 
