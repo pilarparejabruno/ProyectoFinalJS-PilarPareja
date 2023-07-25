@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Raíces | Cosmética Natural</title>
+    <link rel="shortcut icon" href="./img/iconositio.jpg" type="image/x-icon" />
     <!-- MY CSS -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- BOOTSTRAP CSS -->
@@ -24,6 +25,17 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <!--TOASTIFY-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <!--SWEET ALERT-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.16/dist/sweetalert2.min.css"
+      rel="stylesheet"
     />
   </head>
   <body>
@@ -249,16 +261,18 @@
                 Unite a nuestra comunidad y compartí el amor por la belleza
                 consciente.
               </p>
-              <input
-                class="input-email"
-                type="text"
-                name="E-mail"
-                id="E-mail"
-                placeholder="Ingresa tu e-mail"
-              />
-              <button class="btn-suscribe" id="btn-suscribirse">
-                Suscribe
-              </button>
+              <form action="" id="formSuscribir">
+                <input
+                  class="input-email"
+                  type="text"
+                  name="E-mail"
+                  id="E-mail"
+                  placeholder="Ingresa tu e-mail"
+                />
+                <button class="btn-suscribe" id="btn-suscribirse">
+                  Suscribe
+                </button>
+              </form>
             </div>
           </div>
         </div>
@@ -313,6 +327,14 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
+    <!-- JS DE TOASTIFY-->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <!-- JS DE SWEET ALERT-->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="./JS/model/cuentasEmail.js"></script>
     <script src="JS/index.js"></script>
   </body>
 </html>

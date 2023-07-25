@@ -163,10 +163,11 @@ stock.push(
 ); */
 
 // Traigo los productos del JSON
-fetch("productos.json")
+fetch("./productos.json")
   .then((resp) => resp.json())
-  .then((productos) => (stock = productos));
-
+  .then((productos) => {
+    stock = productos;
+  });
 // Dibujo de stock de productos
 
 listaItems = document.getElementById("listaItems");
@@ -308,7 +309,7 @@ function vaciarCarrito() {
   const botonVaciar = document.getElementById(`vaciarCarrito`);
   botonVaciar.addEventListener("click", () => {
     Swal.fire({
-      title: "Desea vaciar el carrito?",
+      title: "¿Desea vaciar el carrito?",
       confirmButtonText: "Si",
       showCancelButton: true,
       cancelButtonText: "No, salir",
