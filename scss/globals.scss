@@ -82,3 +82,16 @@ footer {
     }
   }
 }
+
+.presentationCategorias {
+  .title {
+    @include title;
+  }
+  .subtitle {
+    @include subtitle;
+  }
+  .paragraph {
+    @include paragraph;
+    font-weight: 200;
+  }
+}

@@ -4,15 +4,17 @@ let carrito = [];
 
 let total = 0;
 
+let stockCuidadoFacial;
 // Traigo los productos del JSON
+
 fetch("../JS/productos.json")
   .then((resp) => resp.json())
   .then((productos) => {
     stock = productos;
+    stockCuidadoFacial = stock.filter((prod) => prod.categoria == "Accesorios");
     dibujarProductos();
     clickAgregarCarrito();
   });
-// Dibujo de stock de productos
 
 listaItems = document.getElementById("listaItems");
 
@@ -20,14 +22,14 @@ function dibujarProductos() {
   const row = document.createElement("div");
   row.classList.add("row");
   row.innerHTML = ``;
-  stock.forEach((producto) => {
+  stockCuidadoFacial.forEach((producto) => {
     row.innerHTML += `
     <div class="col-12 col-md-6 col-lg-4">
         <div class="card-group mx-3">
         <div class="card card border-dark h-100 my-3">
           <img
             src="../img/fotosproductos/${producto.imagen}"
-            class="card-img-top "
+            class="card-img-top"
             alt="${producto.nombre}"
             width="600"
            height="450"
@@ -53,7 +55,7 @@ function dibujarProductos() {
 }
 
 // Dibujo del carrito
-// En el carrito capturamos el modal de HTML y en el body le agregamos las cards únicamente
+
 function mostrarCarrito() {
   let tablaCarrito = document.getElementById("modalCarrito");
   tablaCarrito.innerHTML = "";

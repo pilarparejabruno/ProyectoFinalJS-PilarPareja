@@ -224,6 +224,26 @@ footer .social-item .social-link .social-icon {
   color: #000000;
 }
 
+.presentationCategorias .title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 50px;
+  color: #000000;
+}
+.presentationCategorias .subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  font-size: 40px;
+  color: #000000;
+}
+.presentationCategorias .paragraph {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  color: #000000;
+  font-weight: 200;
+}
+
 .modal-container .modal-li {
   position: absolute;
   top: 27%;

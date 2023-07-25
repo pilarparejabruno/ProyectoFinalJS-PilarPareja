@@ -4,10 +4,6 @@ const formSuscribir = document.querySelector("#formSuscribir");
 
 const cuentasEmail = [];
 
-/* inputEmail.addEventListener ("change", () => {
-    if ( inputEmail.value.includes ("gmail.com") || ("hotmail.com"))
-}) */
-
 function validarInput() {
   if (inputEmail.value.includes("@")) {
     Toastify({
@@ -32,9 +28,24 @@ function validarInput() {
   }
 }
 
+function emailRegistrado() {
+  if (inputEmail.value === cuentasEmail.email) {
+    Swal.fire({
+      title: "Email ya registrado",
+      text: `Por favor ingrese otro`,
+      icon: "warning",
+      iconColor: "#beb894",
+      confirmButtonColor: "#beb894",
+    });
+  } else {
+    validarInput();
+  }
+}
+
 btnSuscribir.addEventListener("click", (e) => {
   e.preventDefault();
-  validarInput();
+  emailRegistrado();
+  /*   validarInput(); */
   limpiarForm();
 });
 
