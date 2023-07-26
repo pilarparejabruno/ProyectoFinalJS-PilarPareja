@@ -65,10 +65,13 @@ footer {
     @include subtitle;
     font-size: 18px;
     font-weight: 400;
+    margin: 1rem;
   }
   .paragraph {
     @include paragraph;
+    font-size: 12px;
     font-weight: 400;
+    margin: 0rem;
   }
   .social-item {
     list-style-type: none;

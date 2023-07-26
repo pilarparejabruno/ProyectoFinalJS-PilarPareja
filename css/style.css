@@ -204,13 +204,16 @@ footer .subtitle {
   color: #000000;
   font-size: 18px;
   font-weight: 400;
+  margin: 1rem;
 }
 footer .paragraph {
   font-family: "Montserrat", sans-serif;
   font-weight: 100;
   font-size: 20px;
   color: #000000;
+  font-size: 12px;
   font-weight: 400;
+  margin: 0rem;
 }
 footer .social-item {
   list-style-type: none;
@@ -246,7 +249,7 @@ footer .social-item .social-link .social-icon {
 
 .modal-container .modal-li {
   position: absolute;
-  top: 27%;
+  top: 20%;
   left: 87%;
 }
 .modal-container .modal-li .btn {

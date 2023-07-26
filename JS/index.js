@@ -1,3 +1,4 @@
+//Validacion del input y registro de emails
 const inputEmail = document.getElementById("E-mail");
 const btnSuscribir = document.getElementById("btn-suscribirse");
 const formSuscribir = document.querySelector("#formSuscribir");
@@ -21,7 +22,7 @@ function verificarEmailRegistrado() {
   const existe = cuentasEmail.some((mail) => mail.email === inputEmail.value);
   if (existe) {
     const email = cuentasEmail.find((correo) => {
-      correo.email === inputEmail.value;
+      return correo.email === inputEmail.value;
     });
     if (inputEmail.value === email.email) {
       Swal.fire({

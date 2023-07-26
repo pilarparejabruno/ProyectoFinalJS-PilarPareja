@@ -180,6 +180,28 @@ function abrirCarrito() {
   verCarrito.addEventListener("click", mostrarCarrito);
 }
 
+const btnMenorPrecio = document.getElementById("menorAMayor");
+const btnMayorPrecio = document.getElementById("mayorAMenor");
+const btnMasViejo = document.getElementById("viejoANuevo");
+const btnMasNuevo = document.getElementById("nuevoAViejo");
+
+function menorAMayor() {
+  btnMenorPrecio.addEventListener("click", () => {
+    stock.sort((producto1, producto2) => {
+      return producto1.precio - producto2.precio;
+    });
+  });
+}
+function mayorAMenor() {
+  btnMayorPrecio.addEventListener("click", () => {
+    stock.sort((producto1, producto2) => {
+      return producto2.precio - producto1.precio;
+    });
+  });
+}
+
 abrirCarrito();
 vaciarCarrito();
 mostrarCarrito();
+menorAMayor();
+mayorAMenor();

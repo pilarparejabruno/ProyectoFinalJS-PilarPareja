@@ -85,9 +85,6 @@
               <li class="nav__item">
                 <a class="nav__link mx-4" href="">PREGUNTAS FRECUENTES</a>
               </li>
-              <li class="nav__item">
-                <i class="fa-solid fa-cart-shopping"></i>
-              </li>
             </ul>
           </div>
         </div>
@@ -97,6 +94,56 @@
       </video>
     </header>
     <main>
+      <section class="modal-container">
+        <li class="modal-li d-flex justify-content-end">
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            <i class="fa-solid fa-cart-shopping" id="verCarrito"></i>
+          </button>
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    Carrito de compras
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div id="modalCarrito" class="modal-body"></div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                    id="vaciarCarrito"
+                  >
+                    VACIAR CARRITO
+                  </button>
+                  <button type="button" class="btn btn-primary">
+                    CONTINUAR COMPRA
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </section>
       <section class="presentation">
         <div class="container">
           <div class="row">
@@ -295,8 +342,8 @@
         </div>
         <div class="row">
           <div class="col-md-4">
-            <p class="paragraph">raices.cosmeticavegana@gmail.com</p>
-            <p class="paragraph">+3777 303268</p>
+            <p class="subtitle">raices.cosmeticavegana@gmail.com</p>
+            <p class="subtitle">+3777 303268</p>
           </div>
           <div class="col-md-4">
             <p class="subtitle text-center">Seguinos en las redes</p>
@@ -312,6 +359,8 @@
                 ></a>
               </li>
             </ul>
+            <p class="paragraph text-center">COPYRIGHT RAÍCES - 2023</p>
+            <p class="paragraph text-center">TODOS LOS DERECHOS RESERVADOS</p>
           </div>
           <div class="col-md-4">
             <ul class="navbar-nav mb-5 d-flex">
@@ -344,7 +393,9 @@
     ></script>
     <!-- JS DE SWEET ALERT-->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- MI JS -->
     <script src="./JS/model/cuentasEmail.js"></script>
     <script src="JS/index.js"></script>
+    <script src="./JS/productos.js"></script>
   </body>
 </html>
