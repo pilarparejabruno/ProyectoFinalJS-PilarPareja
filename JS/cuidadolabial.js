@@ -11,47 +11,43 @@ fetch("../JS/productos.json")
   .then((resp) => resp.json())
   .then((productos) => {
     stock = productos;
-    stockCuidadoFacial = stock.filter(
+    stockCuidadoLabial = stock.filter(
       (prod) => prod.categoria == "Cuidado labial"
     );
-    dibujarProductos();
-    clickAgregarCarrito();
+    dibujarProductos(stockCuidadoLabial);
+    clickAgregarCarrito(stockCuidadoLabial);
   });
 
-listaItems = document.getElementById("listaItems");
-
-function dibujarProductos() {
-  const row = document.createElement("div");
-  row.classList.add("row");
-  row.innerHTML = ``;
-  stockCuidadoFacial.forEach((producto) => {
-    row.innerHTML += `
-    <div class="col-12 col-md-6 col-lg-4">
-        <div class="card-group mx-3">
-        <div class="card card border-dark h-100 my-3">
-          <img
-            src="../img/fotosproductos/${producto.imagen}"
-            class="card-img-top"
-            alt="${producto.nombre}"
-            width="600"
-           height="450"
-          />
-          <div class="card-body text-center">
-            <h5 class="card-title">${producto.nombre}</h5>
-            <p class="card-text card-text">$${producto.precio}</p>
-            <button
-              id="btnAgregarCarrito-${producto.id}"
-
-              type="button"
-              class="btn btn-outline-dark"
-            >
-              AGREGAR AL CARRITO
-            </button>
-          </div>
-        </div>
-        
-        </div>
-            `;
+function dibujarProductos(arrayDeProductos) {
+  const listaItems = document.getElementById("listaItems");
+  listaItems.innerHTML = ``;
+  arrayDeProductos.forEach((producto) => {
+    const row = document.createElement("div");
+    row.setAttribute("class", "col-12 col-md-6 col-lg-4");
+    row.innerHTML = `
+            <div class="card-group mx-3">
+            <div class="card card border-dark h-100 my-3">
+              <img
+                src="../img/fotosproductos/${producto.imagen}"
+                class="card-img-top "
+                alt="${producto.nombre}"
+               width="600"
+               height="450"
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">${producto.nombre}</h5>
+                <p class="card-text card-text">$${producto.precio}</p>
+                <button
+                  id="btnAgregarCarrito-${producto.id}"
+    
+                  type="button"
+                  class="btn btn-outline-dark"
+                >
+                  AGREGAR AL CARRITO
+                </button>
+              </div>
+            </div>     
+                `;
     listaItems.appendChild(row);
   });
 }
@@ -104,6 +100,16 @@ function mostrarCarrito() {
       if (producto.cantidad == 0) {
         carrito.splice(index, 1);
         localStorage.setItem("carrito", JSON.stringify(carrito));
+        Toastify({
+          text: `${producto.nombre} fue eliminadx del carrito`,
+          duration: 2000,
+          className: "info",
+          gravity: "top",
+          position: "center",
+          style: {
+            background: "black",
+          },
+        }).showToast();
       }
       mostrarCarrito();
     });
@@ -121,7 +127,7 @@ function mostrarCarrito() {
 }
 
 function clickAgregarCarrito() {
-  stock.forEach((producto) => {
+  stockCuidadoLabial.forEach((producto) => {
     let btnAgregarCarrito = document.getElementById(
       `btnAgregarCarrito-${producto.id}`
     );
@@ -184,6 +190,50 @@ function abrirCarrito() {
   verCarrito.addEventListener("click", mostrarCarrito);
 }
 
+const btnMenorPrecio = document.getElementById("menorAMayor");
+const btnMayorPrecio = document.getElementById("mayorAMenor");
+const btnMasViejo = document.getElementById("viejoANuevo");
+const btnMasNuevo = document.getElementById("nuevoAViejo");
+
+function menorAMayor() {
+  btnMenorPrecio.addEventListener("click", () => {
+    stockCuidadoLabial.sort(
+      (producto1, producto2) => producto1.precio - producto2.precio
+    );
+    dibujarProductos(stockCuidadoLabial);
+  });
+}
+function mayorAMenor() {
+  btnMayorPrecio.addEventListener("click", () => {
+    stockCuidadoLabial.sort(
+      (producto1, producto2) => producto2.precio - producto1.precio
+    );
+    dibujarProductos(stockCuidadoLabial);
+  });
+}
+
+function viejoANuevo() {
+  btnMasViejo.addEventListener("click", () => {
+    stockCuidadoLabial.sort(
+      (producto1, producto2) => producto1.id - producto2.id
+    );
+    dibujarProductos(stockCuidadoLabial);
+  });
+}
+
+function nuevoAViejo() {
+  btnMasNuevo.addEventListener("click", () => {
+    stockCuidadoLabial.sort(
+      (producto1, producto2) => producto2.id - producto1.id
+    );
+    dibujarProductos(stockCuidadoLabial);
+  });
+}
+
 abrirCarrito();
 vaciarCarrito();
 mostrarCarrito();
+menorAMayor();
+mayorAMenor();
+viejoANuevo();
+nuevoAViejo();

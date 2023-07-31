@@ -279,4 +279,36 @@ footer .social-item .social-link .social-icon {
   color: #000000;
 }
 
+.filtrado .filtrado-title .paragraph {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+}
+.filtrado .filtrado-dropdown .btn {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  color: #000000;
+  font-size: 15px;
+  font-weight: bold;
+  border-color: #000000;
+  color: #000000;
+}
+.filtrado .filtrado-dropdown .dropdown-item {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  color: #000000;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.shop #listaItems {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 /*# sourceMappingURL=style.css.map */

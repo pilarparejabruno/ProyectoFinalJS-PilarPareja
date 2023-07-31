@@ -9,27 +9,25 @@ fetch("../JS/productos.json")
   .then((resp) => resp.json())
   .then((productos) => {
     stock = productos;
-    dibujarProductos();
-    clickAgregarCarrito();
+    dibujarProductos(stock);
+    clickAgregarCarrito(stock);
   });
+
 // Dibujo de stock de productos
-
-listaItems = document.getElementById("listaItems");
-
-function dibujarProductos() {
-  const row = document.createElement("div");
-  row.classList.add("row");
-  row.innerHTML = ``;
-  stock.forEach((producto) => {
-    row.innerHTML += `
-    <div class="col-12 col-md-6 col-lg-4">
+function dibujarProductos(arrayDeProductos) {
+  const listaItems = document.getElementById("listaItems");
+  listaItems.innerHTML = ``;
+  arrayDeProductos.forEach((producto) => {
+    const row = document.createElement("div");
+    row.setAttribute("class", "col-12 col-md-6 col-lg-4");
+    row.innerHTML = `
         <div class="card-group mx-3">
         <div class="card card border-dark h-100 my-3">
           <img
             src="../img/fotosproductos/${producto.imagen}"
             class="card-img-top "
             alt="${producto.nombre}"
-            width="600"
+           width="600"
            height="450"
           />
           <div class="card-body text-center">
@@ -44,9 +42,7 @@ function dibujarProductos() {
               AGREGAR AL CARRITO
             </button>
           </div>
-        </div>
-        
-        </div>
+        </div>     
             `;
     listaItems.appendChild(row);
   });
@@ -100,6 +96,16 @@ function mostrarCarrito() {
       if (producto.cantidad == 0) {
         carrito.splice(index, 1);
         localStorage.setItem("carrito", JSON.stringify(carrito));
+        Toastify({
+          text: `${producto.nombre} fue eliminadx del carrito`,
+          duration: 2000,
+          className: "info",
+          gravity: "top",
+          position: "center",
+          style: {
+            background: "black",
+          },
+        }).showToast();
       }
       mostrarCarrito();
     });
@@ -173,6 +179,24 @@ function vaciarCarrito() {
   });
 }
 
+function realizarCompra() {
+  const botonRealizar = document.getElementById(`realizarCompra`);
+  botonRealizar.addEventListener("click", () => {
+    if (total > 0) {
+      Swal.fire({
+        title: "Compra realizada con éxito",
+        icon: "success",
+      });
+    } else {
+      Swal.fire({
+        title: "No hay productos en el carrito",
+        text: "Agregue productos al carrito para finalizar la compra",
+        icon: "error",
+      });
+    }
+  });
+}
+
 carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function abrirCarrito() {
@@ -187,21 +211,36 @@ const btnMasNuevo = document.getElementById("nuevoAViejo");
 
 function menorAMayor() {
   btnMenorPrecio.addEventListener("click", () => {
-    stock.sort((producto1, producto2) => {
-      return producto1.precio - producto2.precio;
-    });
+    stock.sort((producto1, producto2) => producto1.precio - producto2.precio);
+    dibujarProductos(stock);
   });
 }
 function mayorAMenor() {
   btnMayorPrecio.addEventListener("click", () => {
-    stock.sort((producto1, producto2) => {
-      return producto2.precio - producto1.precio;
-    });
+    stock.sort((producto1, producto2) => producto2.precio - producto1.precio);
+    dibujarProductos(stock);
+  });
+}
+
+function viejoANuevo() {
+  btnMasViejo.addEventListener("click", () => {
+    stock.sort((producto1, producto2) => producto1.id - producto2.id);
+    dibujarProductos(stock);
+  });
+}
+
+function nuevoAViejo() {
+  btnMasNuevo.addEventListener("click", () => {
+    stock.sort((producto1, producto2) => producto2.id - producto1.id);
+    dibujarProductos(stock);
   });
 }
 
 abrirCarrito();
 vaciarCarrito();
 mostrarCarrito();
+realizarCompra();
 menorAMayor();
 mayorAMenor();
+viejoANuevo();
+nuevoAViejo();

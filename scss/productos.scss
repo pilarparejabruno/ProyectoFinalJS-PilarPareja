@@ -27,3 +27,34 @@
     }
   }
 }
+
+.filtrado {
+  .filtrado-title {
+    .paragraph {
+      @include paragraph;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+  .filtrado-dropdown {
+    .btn {
+      @include paragraph;
+      font-size: 15px;
+      font-weight: bold;
+      border-color: $color2;
+      color: $color2;
+    }
+    .dropdown-item {
+      @include paragraph;
+      font-size: 15px;
+      font-weight: bold;
+    }
+  }
+}
+
+.shop {
+  #listaItems {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
